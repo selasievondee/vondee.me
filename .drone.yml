@@ -1,0 +1,27 @@
+kind: pipeline
+type: ssh
+name: Tutorial
+
+server:
+  host: 
+    from_secret: SECRET_HOST
+  user: 
+    from_secret: SECRET_USER
+  password: 
+    from_secret: SECRET_PASSWORD
+
+clone:
+  disable: true
+
+steps:
+  - name: Remove previous folder
+    commands:
+      - rm -r /var/www/html/weywot
+
+  - name: Clone code to server
+    commands:
+      - git clone https://github.com/selasievondee/vondee.me.git /var/www/html/weywot
+
+trigger:
+  branch:
+    - main
