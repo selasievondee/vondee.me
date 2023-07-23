@@ -1,0 +1,19 @@
+name: SSH commands
+on:
+  push:
+    branches:
+      - master
+jobs:
+  ssh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run SSH commands
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          commands:
+            - cd /var/www/html/vondee.me
+            - git pull
