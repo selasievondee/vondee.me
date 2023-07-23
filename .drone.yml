@@ -14,13 +14,13 @@ clone:
   disable: true
 
 steps:
-  - name: Remove previous folder
+  - name: Change dir to vondee.me
     commands:
-      - rm -r /var/www/html/weywot
+      - cd /var/www/html/vondee.me
 
-  - name: Clone code to server
+  - name: Pull changes
     commands:
-      - git clone https://github.com/selasievondee/vondee.me.git /var/www/html/weywot
+      - git pull
 
 trigger:
   branch:
