@@ -2,7 +2,7 @@ name: SSH commands
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   ssh:
     runs-on: ubuntu-latest
