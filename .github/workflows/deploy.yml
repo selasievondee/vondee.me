@@ -15,5 +15,5 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: 
-            cd /var/www/html/vondee.me
-            git pull
+            - cd /var/www/html/vondee.me
+            - git pull
