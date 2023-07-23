@@ -7,7 +7,6 @@ jobs:
   ssh:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Run SSH commands
         uses: appleboy/ssh-action@v0.1.10
         with:
