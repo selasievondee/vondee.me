@@ -4,15 +4,28 @@ on:
     branches:
       - main
 jobs:
-  ssh:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run SSH commands
+  # ssh:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Run SSH commands
+  #       uses: appleboy/ssh-action@v1
+  #       with:
+  #         host: ${{ secrets.SSH_HOST }}
+  #         username: ${{ secrets.SSH_USER }}
+  #         key: ${{ secrets.SSH_KEY }}
+  #         script:
+  #           - cd /var/www/html/vondee.me
+  #           - git pull
+  
+  build:
+      name: Build
+      runs-on: ubuntu-latest
+      steps:
+      - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          script:
-            cd /var/www/html/vondee.me
-            git pull
+          script: whoami
